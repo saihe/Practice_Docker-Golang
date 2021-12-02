@@ -1,3 +1,3 @@
-module practice-docer-golang
+module practice-docker-golang
 
 go 1.17
