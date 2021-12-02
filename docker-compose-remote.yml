@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  practice-docker-golang:
+    image: ghcr.io/saihe/practice_docker-golang:main
+    container_name: practice_docker-golang
+    ports:
+      - 9000:9000
