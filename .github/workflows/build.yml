@@ -1,4 +1,4 @@
-name: Go
+name: Build go and create Tag
 
 on:
   push:
@@ -24,3 +24,7 @@ jobs:
       with:
         name: practice-docker-golang
         path: ./practice-docker-golang
+    - name: Create a tag
+      uses: mathieudutour/github-tag-action@6.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
