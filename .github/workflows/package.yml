@@ -1,9 +1,14 @@
 name: Publish docker image
 
 on:
-  push:
-    tags:
-      - '*'
+  workflow_run:
+    workflows: 
+      - Build go and create Tag
+    branches: main
+    types:
+      - "completed"
+  workflow_dispatch:
+
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
