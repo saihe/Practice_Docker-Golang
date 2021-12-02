@@ -25,6 +25,13 @@ jobs:
         name: practice-docker-golang
         path: ./practice-docker-golang
     - name: Create a tag
-      uses: mathieudutour/github-tag-action@6.0
+      id: tag_version
+      uses: mathieudutour/github-tag-action@v6.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Create a GitHub release
+      uses: ncipollo/release-action@v1
+      with:
+        tag: ${{ steps.tag_version.outputs.new_tag }}
+        name: Release ${{ steps.tag_version.outputs.new_tag }}
+        body: ${{ steps.tag_version.outputs.changelog }}
